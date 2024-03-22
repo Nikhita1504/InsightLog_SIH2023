@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Download</title>
+</head>
+<body>
+
+  <!-- Your HTML content here -->
+
+  <script>
+    // Your JSON data (replace this with your actual data)
+    var jsonData = {
+        "task": "NSE",
+            "time": "1702998787",
+
+            "task2": "Parallel DNS resolution of 1 host.",
+            "time": "1702998788",
+
+            "task": "Connect Scan",
+            "time": "1702998831",
+            "extrainfo": "1000 total ports",
+    };
+
+    // Convert JSON to string
+    var jsonString = JSON.stringify(jsonData, null, 2);
+
+    // Create a Blob with the JSON data
+    var blob = new Blob([jsonString], { type: "application/json" });
+
+    // Create a download link
+    var downloadLink = document.createElement("a");
+    downloadLink.href = window.URL.createObjectURL(blob);
+    downloadLink.download = "login_data.json";
+    downloadLink.textContent = "Download JSON";
+
+    // Append the link to the body
+    document.body.appendChild(downloadLink);
+  </script>
+
+</body>
+</html>
